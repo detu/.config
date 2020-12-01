@@ -25,7 +25,8 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 
 " Single mappings
 " let g:which_key_map['.'] = [ ':e $MYVIMRC'           , 'open init' ]
-let g:which_key_map[';'] = [ ':Commands'             , 'commands' ]
+let g:which_key_map[','] = [ 'Startify'              , 'start screen' ]
+" let g:which_key_map[';'] = [ ':Commands'             , 'commands' ]
 let g:which_key_map['d'] = [ ':bd'                   , 'delete buffer']
 let g:which_key_map['e'] = [ ':CocCommand explorer'  , 'explorer' ]
 let g:which_key_map['f'] = [ ':BLines'               , 'find' ]
@@ -39,12 +40,12 @@ let g:which_key_map['w'] = [ ':w'                    , 'write' ]
 let g:which_key_map['z'] = [ 'Goyo'                  , 'zen' ]
 let g:which_key_map['u'] = [ 'UndotreeToggle'        , 'undo' ]
 " let g:which_key_map['c'] = [ ':VimtexCountWords'     , 'count' ]
+" let g:which_key_map.t = 'terminal'
 let g:which_key_map.i = 'index'
 let g:which_key_map.b = 'build'
 let g:which_key_map.c = 'count'
 let g:which_key_map.p = 'preview'
 
-" let g:which_key_map[','] = [ 'Startify'              , 'start screen' ]
 " let g:which_key_map['S'] = [ ':SSave'                , 'save session' ]
 " let g:which_key_map.x = 'clean'
 " let g:which_key_map['c'] = [ ':VimtexCountWords<CR>'      , 'count' ]
@@ -72,6 +73,7 @@ let g:which_key_map.P = {
       \ 'm' : [':Pandoc md'             , 'to markdown from open'],
       \ 'h' : [':Pandoc html'           , 'to html from open'],
       \ 'l' : [':Pandoc latex'          , 'to latex from open'],
+      \ 'p' : [':Pandoc pdf'            , 'to pdf from open'],
       \ }
 
       " \ 'L' : [':terminal pandoc -s expand('%:t') -o expand('%:t').tex'       , 'to latex from file'],
@@ -100,11 +102,13 @@ let g:which_key_map.S = {
 " Markdown
 let g:which_key_map.m = {
       \ 'name' : '+markdown' ,
-      \ 'p' : ['<Plug>MarkdownPreview'           , 'preview'],
-      \ 'k' : ['<Plug>MarkdownPreviewStop'       , 'kill'],
-      \ 'm' : ['<Plug>MarkdownPreviewToggle'     , 'toggle'],
+      \ 'p' : ['<Plug>MarkdownPreview'               , 'preview'],
+      \ 'F' : ['zA'                                  , 'fold all'],
+      \ 'f' : ['za'                                  , 'fold current'],
+      \ 'k' : ['<Plug>MarkdownPreviewStop'           , 'kill'],
       \ 's' : [':call markdown#SwitchStatus()<CR>'   , 'select'],
       \ }
+      " \ 'm' : ['<Plug>MarkdownPreviewToggle'     , 'toggle'],
 
 " y is for you surround
 let g:which_key_map.s = {
@@ -130,6 +134,7 @@ let g:which_key_map.a = {
       \ }
 
 
+      " \ ';' : [ ':Commands'             , 'commands' ],
       " \ 't' : [':FloatermToggle'         , 'terminal'],
       " \ 'c' : [':ColorizerToggle'        , 'colorizer'],
 

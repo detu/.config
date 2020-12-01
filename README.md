@@ -16,7 +16,7 @@ I will also include information for globally remapping keys to better suit writi
 
 # Mac OS Installation
 
-Open the terminal by hitting `Command+Space` and typing `terminal` and hitting return.
+Open the terminal by hitting `Command+Space` and typing `terminal`.
 You may check whether you already have Homebrew installed by entering the following into the terminal:
 
 ```
@@ -86,6 +86,7 @@ If Python 3 reports an error, run following in the terminal (to exit NeoVim, wri
 pip3 install --user pynvim
 ```
 
+Continue to run `:checkhealth` in NeoVim, following the instructions under the reported errors until all errors are gone (the Python 2 errors may be ignored).
 NeoVim comes with an extremely austere set of defaults, including no mouse support, making it difficult to use prior to configuration.
 In order to install plugins, extending the features included in NeoVim, run the following:
 
@@ -123,6 +124,8 @@ Next install LazyGit by running:
 brew install jesseduffield/lazygit/lazygit
 ```
 
+### Adding an SSH Key to GitHub
+
 If you have not already, you can also add an SSH key by amending and running the following:
 
 ```
@@ -154,7 +157,9 @@ In order to clone the configuration files into the appropriate folder on your co
 
 ```
 cd ~/.config
-git clone https://github.com/benbrastmckie/.config.git
+git init
+git remote add origin https://github.com/benbrastmckie/.config.git
+git pull origin master
 mkdir -p ~/.vim/files/info
 sudo pip3 install neovim-remote
 ```
@@ -382,6 +387,8 @@ Next, install LazyGit using Yay by running:
 ```
 yay -S lazygit
 ```
+
+### Adding an SSH Key to GitHub
 
 If you have not already, you can also add an SSH key by amending and running the following:
 

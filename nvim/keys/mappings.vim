@@ -1,3 +1,11 @@
+" Terminal mappings
+nnoremap  <C-t> :FloatermToggle<CR>
+tnoremap <C-t> <C-\><C-n>:FloatermToggle<CR>
+" nnoremap  <leader>t :tab ter<CR>
+" noremap! <leader>t <Esc>:FloatermToggle<CR>i
+" tnoremap  <leader>d <C-\><C-n>:bd!<CR>
+
+
 " Better nav for omnicomplete
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
@@ -194,7 +202,7 @@ vnoremap D g_"dd
 
 " Unmappings
 " unmap <C-t>
-nnoremap <C-t> <Nop>
+" nnoremap <C-t> <Nop>
 
 " nnoremap <Space>hs <Nop>
 " nnoremap <Space>hu <Nop>
@@ -230,3 +238,8 @@ let g:markdown_mapping_switch_status = '<Space>ms'
   " let g:UltiSnipsExpandTrigger='<Nop>'
   " let g:UltiSnipsJumpForwardTrigger = '<TAB>'
   " let g:UltiSnipsJumpBackwardTrigger = '<S-TAB>'
+
+" scroll through autocomplete in commandline tab-menu
+cnoremap <C-j> <C-n>
+cnoremap <C-k> <C-p>
+

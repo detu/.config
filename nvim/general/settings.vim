@@ -1,8 +1,11 @@
 " set leader key
 let g:mapleader = "\<Space>"
 
-" set spell spelllang=en_gb
-set complete+=kspell
+set autoread " trigger `autoread` when files changes on disk
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+  " autocmd FileChangedShellPost * " notification after file change
+  "   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+set complete+=kspell                    " set spell spelllang=en_gb
 autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en_gb
 syntax enable                           " Enables syntax highlighing
 set hidden                              " Required to keep multiple buffers open multiple buffers
@@ -22,12 +25,12 @@ set splitbelow                          " Horizontal splits will automatically b
 set splitright                          " Vertical splits will automatically be to the right
 set t_Co=256                            " Support 256 colors
 set conceallevel=0                      " So that I can see `` in markdown files
+set expandtab                           " Converts tabs to spaces
 set tabstop=2                           " Insert 2 spaces for a tab
 set shiftwidth=2                        " Change the space characters inserted for indentation
 set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
-set expandtab                           " Converts tabs to spaces
-set smartindent                         " Makes indenting smart
 set autoindent                          " Good auto indent
+set smartindent                         " Makes indenting smart
 set laststatus=0                        " Always display the status line
 set relativenumber                      " Relative Line numbers
 set number                              " Line numbers
@@ -45,7 +48,21 @@ set clipboard=unnamedplus               " Copy paste between vim and everything 
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 
+" For highlighting yanked text in nvim (but didn't work)
+" augroup highlight_yank
+"     autocmd!
+"     au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
+" augroup END
+
 " You can't stop me
 " cmap w!! w !sudo tee %
 
 " set viminfo='100,n$HOME/.vim/files/info/viminfo
+
+" set wildmenu                            " autocomplete in command mode
+" set wildmode=list:full                  " settings for wildmenue
+" filetype plugin indent on
+" set indentexpr=
+" set comments=fb:*,fb:-,fb:+,n:>
+" set formatoptions=tcroqn
+" let g:vim_indent_cont = shiftwidth() * 3
